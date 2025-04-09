@@ -13,70 +13,77 @@ per ogni appello d'_Esame_ a cui lo _Studente_ ha partecipato, è necessario mem
 ## columns
 
 id: (BIGINT) primary_key auto_increment NOT NULL
-department_id:
-name:
+department_id: (BIGINT) foreign_key NOT NULL
+teacher_id: (BIGINT) foreign_key NOT NULL
+course_id: (BIGINT) foreign_key NOT NULL
+exam_id: (BIGINT) foreign_key NOT NULL
+name: VARCHAR(255) NOT NULL
 
 ## table name `course`
 
 ## columns
 
 id: (BIGINT) primary_key auto_increment NOT NULL
-course_id:
-name:
+course_id: (BIGINT) foreign_key NOT NULL
+name: VARCHAR(255) NOT NULL
 
 ## table name `subject`
 
 ## columns
 
 id: (BIGINT) primary_key auto_increment NOT NULL
-subject_id:
-teacher_id:
-course_id:
-department_id:
-name:
+subject_id: (BIGINT) foreign_key NOT NULL
+teacher_id: (BIGINT) foreign_key NOT NULL
+course_id: (BIGINT) foreign_key NOT NULL
+department_id: (BIGINT) foreign_key NOT NULL
+name: VARCHAR(255) NOT NULL
 
 ## table name `student`
 
 ## columns
 
 id: (BIGINT) primary_key auto_increment NOT NULL
-subject_id:
-course_id:
-department_id:
-name:
-surname:
-email:
-date of birth:
-registration_number:
-year: YEAR()
+subject_id: (BIGINT) foreign_key NOT NULL
+course_id: (BIGINT) foreign_key NOT NULL
+department_id: (BIGINT) foreign_key NOT NULL
+name: VARCHAR(255) NOT NULL
+surname: VARCHAR(255) NOT NULL
+email: VARCHAR(255) UNIQUE NOT NULL
+date_of_birth: DATE() NOT NULL
+registration_number: SMALLINT UNIQUE NOT NULL
+year: YEAR() NOT NULL
 
 ## table name `teacher`
 
 ## columns
 
 id (BIGINT) primary_key auto_increment NOT NULL
-subject_id
-course_id
-department_id
-name
-surname
-email
-date of birth
-role
+subject_id: (BIGINT) foreign_key NOT NULL
+course_id: (BIGINT) foreign_key NOT NULL
+department_id: (BIGINT) foreign_key NOT NULL
+name: VARCHAR(255) NOT NULL
+surname: VARCHAR(255) NOT NULL
+email: VARCHAR(255) UNIQUE NOT NULL
+date_of_birth: DATE() NULL
+role: VARCHAR(50)
 
 ## table name `exam`
 
 ## columns
 
 id (BIGINT) primary_key auto_increment NOT NULL
-subject_id
-date
+subject_id: (BIGINT) foreign_key NOT NULL
+teacher_id: foreign_key NOT NULL
+date: DATE() NOT NULL
+numer_of_student: SMALLINT NOT NULL
 
 ## table name `vote`
 
 ## columns
 
 id (BIGINT) primary_key auto_increment NOT NULL
-subject_id:
-vote: TINYINT(2)
+exam_id:(BIGINT) foreign_key NOT NULL
+student_id:(BIGINT) foreign_key NOT NULL
+teacher_id:(BIGINT) foreign_key NOT NULL
+vote: TINYINT(2) NOT NULL
 honor: TINYINT DEFAULT(0)
