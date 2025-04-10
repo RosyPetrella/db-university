@@ -124,5 +124,5 @@ WHERE `level` = 'magistrale'
 
 SELECT COUNT('id') FROM `departments`
 
-SELECT \* FROM `teachers`
+SELECT COUNT('phone') from `teachers`
 WHERE `phone` IS NULL
