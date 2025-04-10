@@ -8,6 +8,20 @@ ogni _Studente_ è iscritto ad un solo _Corso di Laurea_;
 ogni _Studente_ può iscriversi a più appelli di _Esame_;
 per ogni appello d'_Esame_ a cui lo _Studente_ ha partecipato, è necessario memorizzare il voto ottenuto, anche se non sufficiente. Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi di stabilirne le relazioni. Infine, andiamo a definire le colonne e i tipi di dato di ogni tabella.
 
+Dopo aver creato un nuovo database nel vostro MySQL Workbench e aver importato lo schema allegato, eseguite le query di seguito:
+:puntina: Cosa devi fare:
+
+1. Selezionare tutti gli studenti nati nel 1990 (160)
+2. Selezionare tutti i corsi che valgono più di 10 crediti (479)
+3. Selezionare tutti gli studenti che hanno più di 30 anni
+4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
+5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)
+6. Selezionare tutti i corsi di laurea magistrale (38)
+7. Da quanti dipartimenti è composta l'università? (12)
+8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+   :puntare_a_destra: Cosa devi consegnare?
+   Dopo aver testato le vostre query con MySQL Workbench, riportatele in un file txt o md e caricatelo nella vostra repo.
+
 ## table name `department`
 
 ## columns
@@ -87,3 +101,13 @@ student_id:(BIGINT) foreign_key NOT NULL
 teacher_id:(BIGINT) foreign_key NOT NULL
 vote: TINYINT(2) NOT NULL
 honor: TINYINT DEFAULT(0)
+
+---
+
+SELECT \*
+FROM `students` WHERE YEAR(date*of_birth) = 1990;
+SELECT * FROM `courses` WHERE CFU > 10
+SELECT \_ FROM `students` WHERE YEAR(date_of_birth) <= 1995;
+SELECT \* FROM `courses`
+WHERE `year` = 1
+AND `period` = 'I semestre'
