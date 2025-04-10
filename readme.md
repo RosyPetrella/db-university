@@ -122,7 +122,7 @@ AND `hour` >= '14:00:00'
 SELECT \_ FROM `degrees`
 WHERE `level` = 'magistrale'
 
-SELECT \* FROM `departments`
+SELECT COUNT('id') FROM `departments`
 
 SELECT \* FROM `teachers`
 WHERE `phone` IS NULL
