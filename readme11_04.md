@@ -12,3 +12,8 @@ SELECT \* FROM `teachers`
 JOIN `course_teacher` ON `course_teacher`.`teacher_id` = `teachers`.`id`
 JOIN `courses` ON `course_teacher`.`course_id` = `courses`.`id`
 WHERE `teachers`.`id` = 44
+
+SELECT \* FROM `students`
+JOIN `degrees` ON `students`.`degree_id` = `degrees`.`id`
+JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`surname`, `students`.`name`
