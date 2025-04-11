@@ -136,3 +136,10 @@ SELECT `office_address` AS ufficio,
 COUNT(\*) AS numero_prof
 FROM `teachers`
 GROUP BY (`office_address`)
+
+SELECT AVG(`exam_student`.`vote`) AS media_voti, `courses`.`name` AS `course_name`, `degrees`.`name` AS `degree_name`
+FROM `exam_student`
+JOIN `exams` ON `exam_student`.`exam_id` = `exams`.`id`
+JOIN `courses` ON `exams`.`course_id` = `courses`.`id`
+JOIN `degrees` ON `courses`.`degree_id` = `degrees`.`id`
+GROUP BY `courses`.`id`
