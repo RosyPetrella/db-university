@@ -143,3 +143,8 @@ JOIN `exams` ON `exam_student`.`exam_id` = `exams`.`id`
 JOIN `courses` ON `exams`.`course_id` = `courses`.`id`
 JOIN `degrees` ON `courses`.`degree_id` = `degrees`.`id`
 GROUP BY `courses`.`id`
+
+departments.name AS nome_dipartimento,
+COUNT(degrees.id) AS numero_corsi FROM `departments`
+JOIN `degrees` ON `degrees`.`department_id` = `departments`.`id`
+GROUP BY `departments`.`id`
