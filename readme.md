@@ -126,3 +126,8 @@ SELECT COUNT('id') FROM `departments`
 
 SELECT COUNT('phone') from `teachers`
 WHERE `phone` IS NULL
+
+SELECT YEAR(`enrolment_date`) AS anno,
+COUNT(\*) AS numero_iscritti
+FROM `students`
+GROUP BY YEAR(`enrolment_date`)
